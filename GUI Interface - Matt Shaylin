@@ -1,0 +1,60 @@
+/** Example of JFrame code from 
+** http://cs.nyu.edu/~yap/classes/visual/03s/lect/l7/
+** We don't need to use this, I just wanted to put something here :)
+**/
+
+/*************************************************************
+ * file: EmptyFrame1.java
+ *
+ * Synopsis:
+ *  This continues the EmptyFrame.java saga.
+ *	To allow the program to terminate properly, we
+ *	introduce a class "Terminator"
+ *	to implement the "WindowListener".  Then when we close
+ *	the window, an instance of this class will catch the
+ *	"close" message!  However, it is tedious to implement
+ *	WindowListeners as it has 7 methods to implement.  Instead
+ *	Java provides the class WindowAdaptor which implements
+ *	WindowListener with all 7 methods defaulted to the null
+ *	implementation.  You just need to extend WindowAdaptor
+ *	to implement any of the 7 methods that is relevant to you.
+ *	In the present example, we only implement the windowClosing
+ *	method! In the following example, we further simplify this
+ *	by implementing an anonymous extension of WindowAdaptor().
+ *
+ * Source: Core Java, vol.1, by Horstmann & Cornell
+ * 	   Adapted for Visualization, Spring 2003
+ * 	   Chee Yap (yap@cs.nyu.edu)
+ *************************************************************/
+
+import java.awt.event.*;
+import javax.swing.*;
+
+class EmptyFrame1 extends JFrame {
+
+  // Constructor:
+  public EmptyFrame1() {
+	setTitle("My Closeable Frame");
+	setSize(300,200); // default size is 0,0
+	setLocation(10,200); // default is 0,0 (top left corner)
+
+	// Window Listeners
+	addWindowListener(new WindowAdapter() {
+	  	public void windowClosing(WindowEvent e) {
+		   System.exit(0);
+	  	} //windowClosing
+	} );
+  } 
+
+  public static void main(String[] args) {
+    JFrame f = new EmptyFrame1();
+    f.show();
+  } //main
+} //class EmptyFrame1
+
+
+/* NOTES:
+	WindowAdapter() is class that implements WindowListers
+	with null methods for all the 7 methods of WindowListeners!
+	It is found in java.awt.event.*.
+ */
