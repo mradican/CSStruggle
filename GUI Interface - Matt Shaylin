@@ -57,4 +57,6 @@ class EmptyFrame1 extends JFrame {
 	WindowAdapter() is class that implements WindowListers
 	with null methods for all the 7 methods of WindowListeners!
 	It is found in java.awt.event.*.
+
+I CHANGED THIS - Shaylin
  */
